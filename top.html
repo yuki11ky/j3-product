@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCCl0yQAQvaCp8MbvDwaJRuE-xWiCilV58",
+        authDomain: "j3-product.firebaseapp.com",
+        projectId: "j3-product",
+        storageBucket: "j3-product.appspot.com",
+        messagingSenderId: "751231358061",
+        appId: "1:751231358061:web:60abfc7a251e46a098db64",
+        measurementId: "G-5RR9F32Y6E",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Firebaseにデータを送信するための関数。
+      // function sendDataToFirebase() {
+      //   var db = firebase.database();
+      //   db.ref("KeyA").set("あああ");
+      //   db.ref("KeyB").set("いいい");
+      //   db.ref("KeyC").set({
+      //     value1: "ううう1",
+      //     value2: "ううう2",
+      //     value3: "ううう3",
+      //   });
+      // }
+
+      // // Firebaseからデータを受信するための「リスナー」を設置。
+      // var reference_a = firebase.database().ref("KeyA");
+      // var reference_b = firebase.database().ref("KeyB");
+      // var reference_c = firebase.database().ref("KeyC");
+
+      // reference_a.on("value", (snapshot) => {
+      //   const data = snapshot.val();
+      //   addText(data);
+      // });
+
+      // reference_b.on("value", (snapshot) => {
+      //   const data = snapshot.val();
+      //   addText(data);
+      // });
+
+      // reference_c.on("value", (snapshot) => {
+      //   const data1 = snapshot.val().value1;
+      //   const data2 = snapshot.val().value2;
+      //   const data3 = snapshot.val().value3;
+      //   addText(data1);
+      //   addText(data2);
+      //   addText(data3);
+      // });
+
+      // function addText(data) {
+      //   const p = document.createElement("p");
+      //   p.innerHTML = data;
+      //   const div = document.getElementById("contents");
+      //   div.appendChild(p);
+      // }
+    </script>
+
+    <div class="all-wrap">
+      <div class="menu-contents">
+        <!-- メニュー -->
+        <div class="menu">
+          <div class="menu-wrap">
+            <h3 class="menu-head">メニュー</h3>
+            <ul class="menu-list">
+              <li class="menu-item">
+                <a href="/" class="menu-name">ホーム</a>
+              </li>
+              <li class="menu-item">
+                <a href="/" class="menu-name">電力</a>
+              </li>
+              <li class="menu-item">
+                <a href="/" class="menu-name">コイン</a>
+              </li>
+              <li class="menu-item">
+                <a href="/" class="menu-name">ニュース</a>
+              </li>
+              <li class="menu-item">
+                <a href="/" class="menu-name">マイページ</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="body-wrap">
+        <main>
+          <!-- Body top -->
+          <div class="body-top">
+            <div class="body-top-item">
+              <div>
+                <h2>電力量</h2>
+                <div>
+                  <p>111 <span>kw</span></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="body-top-item2">
+              <div>
+                <h2>発電量</h2>
+                <div>
+                  <p>565 <span>kw</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="body-top-item3">
+              <div>
+                <h2>使用電力</h2>
+                <div>
+                 121.8 <span>kw</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="body-top-item4">
+              <div>
+                <h2>保有コイン</h2>
+                <div>
+                 10000 <span>energycoin</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+           <!-- Body middle -->
+          <div class="body-middle">
+            <div class="body-middle-item">
+              <div>
+                <h2>マップ</h2>
+                
+              </div>
+            </div>
+            <div class="body-middle-item2">
+              <div>
+                <h2>ニュース</h2>
+                
+              </div>
+            </div>
+          </div>
+           <!-- Body bottom -->
+          <div class="body-bottom">
+            <div class="body-bottom-item">
+              <div>
+                <h2>広告１</h2>
+                
+              </div>
+            </div>
+            <div class="body-bottom-item2">
+              <div>
+                <h2>広告2</h2>
+                
+              </div>
+            </div>
+            <div class="body-bottom-item2">
+              <div>
+                <h2>広告3</h2>
+                
+              </div>
+            </div>
+            <div class="body-bottom-item3">
+              <div>
+                <h2>お知らせ１</h2>
+                
+              </div>
+            </div>
+            <div class="body-bottom-item4">
+              <div>
+                <h2>お知らせ2</h2>
+                
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

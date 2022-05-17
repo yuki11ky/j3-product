@@ -1,0 +1,113 @@
+/* リセットCSS */
+*,*::before,*::after{box-sizing:border-box}*{margin:0}html,body{height:100%}body{line-height:1.5;-webkit-font-smoothing:antialiased}img,picture,video,canvas,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}#root,#__next{isolation:isolate}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.all-wrap {
+    display: flex;
+}
+
+.menu-contents {
+    width: 15%;
+}
+.body-wrap {
+    width: 85%;
+}
+
+/* メニュー */
+.menu {
+    height: 100vh;
+    background-color: #43425d;
+}
+
+.menu-head {
+    color: white;
+    font-weight: bold;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-list li a {
+    display: block;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    padding: 16px 0;
+    padding-left: 16px;
+    /* border-left: white solid 18px; */
+    
+}
+
+.menu-wrap {
+    width: 100%;
+}
+
+/* Body top*/
+.body-top {
+    display: flex;
+}
+
+.body-top-item {
+    background-color: rgb(204, 150, 24);
+    width: 100px;
+}
+.body-top-item2 {
+    background-color: rgb(204, 207, 41);
+    width: 100px;
+}
+.body-top-item3 {
+    background-color: rgb(35, 185, 35);
+    width: 100px;
+}
+.body-top-item4 {
+    background-color: rgb(203, 34, 93);
+    width: 150px;
+}
+
+
+/* Body middle*/
+.body-middle {
+    display: flex;
+}
+.body-middle-item {
+    background-color: rgb(24, 204, 126);
+    width: 450px;
+    height: 500px;
+}
+
+.body-middle-item2 {
+    background-color: rgb(24, 87, 204);
+    width: 100px;
+    height: 500px;
+}
+
+/* Body bottom*/
+.body-bottom {
+    display: flex;
+}
+.body-bottom-item {
+    background-color: rgb(204, 150, 24);
+    width: 100px;
+    height: 150px;
+}
+.body-bottom-item2 {
+    background-color: rgb(204, 150, 24);
+    width: 100px;
+    height: 150px;
+}
+.body-bottom-item3 {
+    background-color: rgb(204, 150, 24);
+    width: 100px;
+    height: 150px;
+}
+.body-bottom-item4 {
+    background-color: rgb(204, 150, 24);
+    width: 100px;
+    height: 150px;
+}

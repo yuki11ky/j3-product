@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/denryoku.css" />
+
+    <title>電力</title>
+  </head>
+  <body>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script type="module">
+      const firebaseConfig = {
+        apiKey: "AIzaSyCCl0yQAQvaCp8MbvDwaJRuE-xWiCilV58",
+        authDomain: "j3-product.firebaseapp.com",
+        projectId: "j3-product",
+        storageBucket: "j3-product.appspot.com",
+        messagingSenderId: "751231358061",
+        appId: "1:751231358061:web:60abfc7a251e46a098db64",
+        measurementId: "G-5RR9F32Y6E",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script>
+      // 天気情報取得
+    </script>
+
+    <div class="all-wrap">
+      <div class="menu-contents">
+        <!-- メニュー -->
+        <div class="menu">
+          <div class="menu-wrap">
+            <h3 class="menu-head">メニュー</h3>
+            <ul class="menu-list">
+              <li class="menu-item">
+                <a href="/" class="menu-name">ホーム</a>
+              </li>
+              <li class="menu-item">
+                <a href="/" class="menu-name">電力</a>
+              </li>
+              <li class="menu-item">
+                <a href="/" class="menu-name">コイン</a>
+              </li>
+              <li class="menu-item">
+                <a href="/" class="menu-name">ニュース</a>
+              </li>
+              <li class="menu-item">
+                <a href="/" class="menu-name">マイページ</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="body-wrap">
+        <main>
+          <div class="denryoku-body-top">
+            <div class="weather">
+              <h2>天気予報</h2>
+              <div class="weather-wrap">
+                <div class="weather-info">
+                  <p>最高<span>24℃</span></p>
+                  <p>最低<span>15℃</span></p>
+                </div>
+                <div class="weather-img">
+                  <img src="" alt="天気" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hatsuden-yoso">
+            <div>
+              <h2>今日の水量予想</h2>
+              <div class="hatsuden-yoso-info">
+                <p>多い</p>
+                <img src="" alt="水量" />
+              </div>
+            </div>
+            <div>
+              <h2>予想発電量</h2>
+              <div>
+                <p>155<span>wh</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="denryoku-contents">
+            <div class="denryoku-items">
+              <div class="denryoku-item">
+                <h2>余剰電力</h2>
+                <p>1212 <span>kwh</span></p>
+              </div>
+              <div class="denryoku-item">
+                <h2>発電</h2>
+                <p>55<span>kwh</span></p>
+              </div>
+              <div class="denryoku-item">
+                <h2>使用電力</h2>
+                <p>87<span>wh</span></p>
+              </div>
+
+              <div class="denryoku-graph"></div>
+
+              <div class="denryoku-buysell">
+                <a href="" class="buy">BUY</a>
+                <a href="" class="sell">SELL</a>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

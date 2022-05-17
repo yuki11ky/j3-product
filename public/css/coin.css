@@ -1,0 +1,38 @@
+.coin-body-first {
+    display: flex;
+    margin-bottom: 32px;
+}
+
+.owned-coin {
+    border: black 1px solid;
+    padding: 12px;
+}
+
+.coin-body-second {
+    display: flex;
+    margin-bottom: 32px;
+}
+
+.chart {
+    background-color: rgb(135, 132, 149);
+    width: 450px;
+    height: 500px;
+}
+
+.coin-body-third{
+    display: flex;
+    margin-bottom: 32px;
+}
+
+.BUY {
+    border: black 1px solid;
+    padding: 12px;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+.SELL {
+    border: black 1px solid;
+    padding: 12px;
+}
+

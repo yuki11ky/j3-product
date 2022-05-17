@@ -1,0 +1,66 @@
+.denryoku-body-top {
+    display: flex;
+    margin-bottom: 32px;
+}
+
+
+.denryoku-body-top .weather {
+    border: black 1px solid;
+    padding: 12px;
+}
+
+.hatsuden-yoso {
+    border: black 1px solid;
+    padding: 12px;
+}
+
+.weather-wrap {
+    display: flex;
+}
+
+.hatsuden-yoso div:first-child {
+    margin-bottom: 18px;
+}
+
+.hatsuden-yoso-info {
+    display: flex;
+}
+
+.denryoku-item {
+    display: flex;
+    align-items: center;
+}
+
+.denryoku-item h2 {
+ width: 20%;   
+}
+
+.denryoku-contents {
+    display: flex;
+    border: black 1px solid;
+}
+
+.denryoku-items {
+    width: 100%;
+}
+
+.denryoku-contents
+
+.denryoku-graph {
+    border: black 1px solid;
+    height: 100px;
+}
+
+.denryoku-buysell a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+
+.denryoku-buysell .buy {
+    background-color: #0277BD;
+}
+
+.denryoku-buysell .sell {
+    background-color: #0277BD;
+}

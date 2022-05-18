@@ -1,5 +1,47 @@
 /* リセットCSS */
-*,*::before,*::after{box-sizing:border-box}*{margin:0}html,body{height:100%}body{line-height:1.5;-webkit-font-smoothing:antialiased}img,picture,video,canvas,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}#root,#__next{isolation:isolate}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
 ul,
 ol {
   margin: 0;
@@ -8,106 +50,120 @@ ol {
 }
 
 .all-wrap {
-    display: flex;
+  display: flex;
 }
 
 .menu-contents {
-    width: 15%;
+  width: 15%;
+  background-color: #0097a7;
 }
 .body-wrap {
-    width: 85%;
+  width: 85%;
+  padding-top: 24px;
+  padding-left: 32px;
+  background-color: #e3f2fd;
+}
+
+/* フォント */
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+body {
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 /* メニュー */
 .menu {
-    height: 100vh;
-    background-color: #43425d;
+  height: 100vh;
 }
 
 .menu-head {
-    color: white;
-    font-weight: bold;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  color: white;
+  font-weight: bold;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu-list li a {
-    display: block;
-    cursor: pointer;
-    color: white;
-    text-decoration: none;
-    padding: 16px 0;
-    padding-left: 16px;
-    /* border-left: white solid 18px; */
-    
+  display: block;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  padding: 16px 0;
+  padding-left: 16px;
+  /* border-left: white solid 18px; */
 }
 
 .menu-wrap {
-    width: 100%;
+  width: 100%;
 }
 
 /* Body top*/
 .body-top {
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .body-top-item {
-    background-color: rgb(204, 150, 24);
-    width: 100px;
+  /* border: #90A4AE 1px solid; */
+  background-color: white;
+  width: 24%;
+  border-radius: 8px;
+  padding: 12px;
 }
-.body-top-item2 {
-    background-color: rgb(204, 207, 41);
-    width: 100px;
-}
-.body-top-item3 {
-    background-color: rgb(35, 185, 35);
-    width: 100px;
-}
-.body-top-item4 {
-    background-color: rgb(203, 34, 93);
-    width: 150px;
-}
-
 
 /* Body middle*/
 .body-middle {
-    display: flex;
-}
-.body-middle-item {
-    background-color: rgb(24, 204, 126);
-    width: 450px;
-    height: 500px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.body-middle-item2 {
-    background-color: rgb(24, 87, 204);
-    width: 100px;
-    height: 500px;
+.body-middle-item {
+  background-color: white;
+  width: 70%;
+  max-height: auto;
+  border-radius: 8px;
+  padding: 12px;
+  padding-bottom: 0;
+}
+
+.body-middle-item img {
+  width: 50px;
+  height: auto;
+}
+
+.body-middle-item .slider {
+  height: 20px;
+}
+
+.body-middle-item.news {
+  background-color: white;
+  width: 25%;
+  height: auto;
 }
 
 /* Body bottom*/
 .body-bottom {
-    display: flex;
+  display: flex;
 }
 .body-bottom-item {
-    background-color: rgb(204, 150, 24);
-    width: 100px;
-    height: 150px;
+  background-color: rgb(204, 150, 24);
+  width: 200px;
+  height: 200px;
 }
 .body-bottom-item2 {
-    background-color: rgb(204, 150, 24);
-    width: 100px;
-    height: 150px;
+  background-color: rgb(204, 150, 24);
+  width: 100px;
+  height: 150px;
 }
 .body-bottom-item3 {
-    background-color: rgb(204, 150, 24);
-    width: 100px;
-    height: 150px;
+  background-color: rgb(204, 150, 24);
+  width: 100px;
+  height: 150px;
 }
 .body-bottom-item4 {
-    background-color: rgb(204, 150, 24);
-    width: 100px;
-    height: 150px;
+  background-color: rgb(204, 150, 24);
+  width: 100px;
+  height: 150px;
 }

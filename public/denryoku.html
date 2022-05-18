@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/denryoku.css" />
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".slider").bxSlider({
+          auto: true,
+          pause: 4000,
+        });
+      });
+    </script>
     <title>電力</title>
   </head>
   <body>
@@ -105,11 +120,21 @@
                 <p>87<span>wh</span></p>
               </div>
 
-              <div class="denryoku-graph"></div>
+              <div class="denryoku-graph">
+                <div class="slider">
+                  <img src="img/chart1.png" alt="graph" />
+                  <img src="img/chart2.jfif" alt="graph" />
+                </div>
+              </div>
 
               <div class="denryoku-buysell">
-                <a href="" class="buy">BUY</a>
-                <a href="" class="sell">SELL</a>
+                <div class="BUY">
+                  <a href="/buy_completed.html">BUY</a>
+                </div>
+
+                <div class="SELL">
+                  <a href="/sold.html">SELL</a>
+                </div>
               </div>
             </div>
           </div>

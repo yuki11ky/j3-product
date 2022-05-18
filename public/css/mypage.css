@@ -1,0 +1,22 @@
+.body-wrap.mypage {
+}
+
+.user-info-item {
+  display: flex;
+  align-items: center;
+}
+
+.user-info-item h3 {
+  width: 20%;
+}
+
+.subscription,
+.user-info {
+  background-color: white;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.subscription {
+  margin-bottom: 24px;
+}

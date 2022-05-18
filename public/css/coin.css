@@ -3,10 +3,12 @@
   margin-bottom: 32px;
 }
 
-.owned-coin {
+.owned-coin,
+.chart {
   background-color: white;
   border-radius: 8px;
   padding: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .coin-body-second {
@@ -15,9 +17,6 @@
 }
 
 .chart {
-  background-color: white;
-  border-radius: 8px;
-  padding: 12px;
   width: 450px;
   height: 500px;
 }

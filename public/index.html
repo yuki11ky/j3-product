@@ -7,19 +7,21 @@
     <link rel="stylesheet" href="css/style.css" />
 
     <title>トップページ</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
     <script type="text/javascript">
-      $(document).ready(function(){
-          $('.slider').bxSlider({
-              auto: true,
-              pause: 4000,
-          });
+      $(document).ready(function () {
+        $(".slider").bxSlider({
+          auto: true,
+          pause: 4000,
+        });
       });
     </script>
-
   </head>
   <body>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
@@ -51,24 +53,66 @@
       //   });
       // }
 
-      // // Firebaseからデータを受信するための「リスナー」を設置。
+      // news取得
       let newsItems = firebase.database().ref("news");
-      
+
       let ul = document.getElementById("news-ul");
-      newsItems.on("value", (snapshot) => {;
+      newsItems.on("value", (snapshot) => {
         const data = snapshot.val();
         // addText(data);
         data.map((value, index) => {
-          console.log(index)
+          console.log(index);
           let li = document.createElement("li");
           let aTag = document.createElement("a");
-          aTag.href = "news_detail.html?id="+index;
+          aTag.href = "news_detail.html?id=" + index;
           let text = document.createTextNode(value["title"]);
           aTag.appendChild(text);
           li.appendChild(aTag);
           ul.appendChild(li);
-        })
+        });
       });
+
+      // Userの電力系の取得
+      let userInfo = firebase.database().ref("users/" + "1");
+      console.log(userInfo);
+      userInfo.on("value", (snapshot) => {
+        const data = snapshot.val();
+        console.log(data);
+        let powerConsumption = document.createTextNode(
+          data["power_consumption"] + "kw"
+        );
+        let powerGeneration = document.createTextNode(
+          data["power_generation"] + "kw"
+        );
+        let powerSurplus = document.createTextNode(
+          data["power_surplus"] + "kw"
+        );
+        let coin = document.createTextNode(data["coin"] + "energy coin");
+
+        // データ表示
+        let pTag = document.createElement("p");
+        let elePowerConsumption = document.getElementById("power-consumption");
+        let elepowerGeneration = document.getElementById("power-generation");
+        let elePowerSurplus = document.getElementById("power-surplus");
+        let eleCoin = document.getElementById("coin");
+
+        pTag.appendChild(powerConsumption);
+        elePowerConsumption.appendChild(pTag);
+
+        pTag = document.createElement("p");
+        pTag.appendChild(powerGeneration);
+        elepowerGeneration.appendChild(pTag);
+
+        pTag = document.createElement("p");
+        pTag.appendChild(powerSurplus);
+        elePowerSurplus.appendChild(pTag);
+
+        pTag = document.createElement("p");
+        pTag.appendChild(coin);
+        eleCoin.appendChild(pTag);
+      });
+      let powerItems = 0;
+      let storageBattery = firebase.database().ref("storage_battery");
 
       // reference_b.on("value", (snapshot) => {
       //   const data = snapshot.val();
@@ -124,70 +168,74 @@
           <div class="body-top">
             <div class="body-top-item">
               <div>
-                <div class="flex">
-                  <p class="side-img"><img src="img/denryoku.png"></p>
-                  <p class="side-txt"></p>
+                <div class="power-top-contents">
+                  <h2>余剰電力量</h2>
+                  <div class="flex">
+                    <p class="side-img"><img src="img/top/denryoku.png" /></p>
+                    <p class="side-txt"></p>
                   </div>
-                <h2>電力量</h2>
-                <div>
-                  <p>111 <span>kw</span></p>
                 </div>
+                <div id="power-surplus"></div>
               </div>
             </div>
 
             <div class="body-top-item">
               <div>
                 <div class="flex">
-                  <p class="side-img"><img src="img/hatsudenn.png"></p>
+                  <p class="side-img"><img src="img/top/hatsudenn.png" /></p>
                   <p class="side-txt"></p>
-                  </div>
+                </div>
                 <h2>発電量</h2>
-                <div>
-                  <p>565 <span>kw</span></p>
-                </div>
+                <div id="power-generation"></div>
               </div>
             </div>
             <div class="body-top-item">
               <div>
                 <div class="flex">
-                  <p class="side-img"><img src="img/siyodennryoku.png"></p>
+                  <p class="side-img">
+                    <img src="img/top/siyodennryoku.png" />
+                  </p>
                   <p class="side-txt"></p>
-                  </div>
-                <h2>使用電力</h2>
-                <div>
-                 121.8 <span>kw</span></p>
                 </div>
+                <h2>使用電力量</h2>
+                <div id="power-consumption"></div>
               </div>
             </div>
             <div class="body-top-item">
               <div>
                 <div class="flex">
-                  <p class="side-img"><img src="img/coin.png"></p>
+                  <p class="side-img"><img src="img/coin/coin.png" /></p>
                   <p class="side-txt"></p>
-                  </div>
-                <h2>保有コイン</h2>
-                <div>
-                 <p>10000 <span>energycoin</span></p>
                 </div>
+                <h2>保有ルピー</h2>
+                <div id="coin"></div>
               </div>
             </div>
           </div>
-           <!-- Body middle -->
+          <!-- Body middle -->
           <div class="body-middle">
             <div class="body-middle-item">
               <div>
-            <div class="slider">
-              <img src="img/graph1.png" alt="graph">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113032.48874243753!2d85.25609292252351!3d27.709094706877526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c1bf18db1ea!2z44ON44OR44O844OrIOOAkjQ0NjAwIOOCq-ODiOODnuODs-OCug!5e0!3m2!1sja!2sjp!4v1652849057730!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              </div>
+                <div class="slider">
+                  <img src="img/top/graph1.png" alt="graph" />
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113032.48874243753!2d85.25609292252351!3d27.709094706877526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c1bf18db1ea!2z44ON44OR44O844OrIOOAkjQ0NjAwIOOCq-ODiOODnuODs-OCug!5e0!3m2!1sja!2sjp!4v1652849057730!5m2!1sja!2sjp"
+                    width="600"
+                    height="450"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
               </div>
             </div>
             <div class="body-middle-item news">
               <div>
                 <div class="flex">
-                  <p class="side-img"><img src="img/news.png"></p>
+                  <p class="side-img"><img src="img/top/news.png" /></p>
                   <p class="side-txt"></p>
-                  </div>
+                </div>
                 <h2>ニュース</h2>
                 <div id="">
                   <ul id="news-ul"></ul>
@@ -195,44 +243,43 @@
               </div>
             </div>
           </div>
-           <!-- Body bottom -->
+          <!-- Body bottom -->
           <div class="body-bottom">
             <div class="body-bottom-item">
               <div>
                 <div class="flex">
-                  <p class="side-img"><img src="img/tu_building.jpg"></p>
+                  <p class="side-img"><img src="img/top/tu_building.jpg" /></p>
                   <p class="side-txt"></p>
-                  </div>
+                </div>
                 <h2>トリブバン大学</h2>
-                
               </div>
             </div>
             <div class="body-bottom-item2">
               <div>
                 <div class="flex">
-                  <p class="side-img"><img src="img/jica_logo.jpg"></p>
+                  <p class="side-img"><img src="img/top/jica_logo.jpg" /></p>
                   <p class="side-txt"></p>
-                  </div>
+                </div>
                 <h2>JICA</h2>
-                
               </div>
             </div>
             <div class="body-bottom-item2">
               <div>
+                <div class="flex">
+                  <p class="side-img"><img src="img/top/smilemart.png" /></p>
+                  <p class="side-txt"></p>
+                </div>
                 <h2>広告3</h2>
-                
               </div>
             </div>
             <div class="body-bottom-item3">
               <div>
                 <h2>お知らせ１</h2>
-                
               </div>
             </div>
             <div class="body-bottom-item4">
               <div>
                 <h2>お知らせ2</h2>
-                
               </div>
             </div>
           </div>

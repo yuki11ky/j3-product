@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/coin.css" />
+    <link rel="stylesheet" href="css/buy.css" />
 
     <link
       rel="stylesheet"
@@ -42,6 +42,52 @@
 
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
+
+      let storageBattery = firebase.database().ref("storage_battery");
+      let storageBatteryVal = 0;
+
+      // 取引電力
+      let url = new URL(window.location.href);
+      let params = url.searchParams;
+      let power = params.get("power");
+      let powerTrading = document.getElementById("power-trading");
+      let spanTag = document.createElement("span");
+      powerTrading.appendChild(document.createTextNode(power));
+      spanTag.appendChild(document.createTextNode("kw"));
+      powerTrading.appendChild(spanTag);
+
+      // Userの余剰電力
+      let userInfo = firebase.database().ref("users/" + "1");
+      console.log(userInfo);
+      let ansPowerSurplusVal = 0;
+      let ans;
+      userInfo.on("value", (snapshot) => {
+        const data = snapshot.val();
+        console.log(data);
+        let powerSurplusVal = data["power_surplus"];
+        let coin = document.createTextNode(data["coin"] + "energy coin");
+
+        console.log(powerSurplusVal);
+        ansPowerSurplusVal = powerSurplusVal + Number(power);
+        console.log(ansPowerSurplusVal);
+
+        // データ表示
+        let elePowerSurplus = document.getElementById("power-surplus");
+        let spanTag = document.createElement("span");
+        elePowerSurplus.appendChild(
+          document.createTextNode(ansPowerSurplusVal)
+        );
+        spanTag.appendChild(document.createTextNode("kw"));
+        elePowerSurplus.appendChild(spanTag);
+      });
+      let elePowerSurplus = document.getElementById("power-surplus");
+      console.log(elePowerSurplus);
+      firebase
+        .database()
+        .ref("users/" + "1")
+        .update({ power_surplus: ansPowerSurplusVal });
+
+      console.log(ans);
     </script>
     <script>
       // 天気情報取得
@@ -75,7 +121,62 @@
       </div>
 
       <div class="body-wrap">
-        <main>購入できました！</main>
+        <main>
+          <div class="kounyuu">購入できました！</div>
+
+          <div class="other-info">
+            <div class="flex">
+              <p class="side-img">
+                <img src="img/top/smilemart.png" />
+              </p>
+              <p class="side-txt"></p>
+            </div>
+
+            <div class="other_name">
+              <h2>スマイルマート</h2>
+            </div>
+          </div>
+
+          <div class="kessai-rupee">
+            <h2>388 <span>Rupee</span></h2>
+          </div>
+
+          <div class="kessai-waku">
+            <div class="kessai-info">
+              <div>
+                <p class="kessai-num">決済番号</p>
+                <p class="num">0000 0000</p>
+              </div>
+
+              <div>
+                <p class="kessai-num">支払い（ルピー）</p>
+                <p class="pay-rupee">151 <span>Rupee</span></p>
+              </div>
+              <div>
+                <p class="kessai-num">残高（ルピー）</p>
+                <p class="zandaka-rupee">23589<span>Rupee</span></p>
+              </div>
+              <div>
+                <p class="kessai-num">取引内容</p>
+                <p class="siharai">BUY</p>
+              </div>
+              <div>
+                <p class="kessai-num">取引電力</p>
+                <p class="torihiki-den" id="power-trading"></p>
+              </div>
+
+              <div>
+                <p class="kessai-num">余剰電力</p>
+                <p class="yojyo-den" id="power-surplus"></p>
+              </div>
+
+              <div>
+                <p class="kessai-num">電力単価</p>
+                <p class="tanka-den">2.42 <span>Rupee/kWh</span></p>
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   </body>

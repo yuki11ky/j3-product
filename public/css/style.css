@@ -123,6 +123,15 @@ body {
   padding: 12px;
 }
 
+.power-top-contents {
+  display: flex;
+  align-items: center;
+}
+
+.flex .side-img {
+  width: 50%;
+}
+
 /* Body middle*/
 .body-middle {
   display: flex;

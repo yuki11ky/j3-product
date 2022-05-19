@@ -40,6 +40,49 @@
 
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
+
+      let storageBattery = firebase.database().ref("storage_battery");
+      let storageBatteryVal = 0;
+
+      storageBattery.on("value", (snapshot) => {
+        let eleStorageBattery = document.getElementById("storage-battery");
+
+        let pTag = document.createElement("p");
+        if (eleStorageBattery.children.length !== 0) {
+          eleStorageBattery.lastElementChild.remove();
+        }
+        const data = snapshot.val();
+        storageBatteryVal = data["value"];
+        let storageBattery = document.createTextNode(storageBatteryVal + "kw");
+
+        // データ表示
+        pTag = document.createElement("p");
+        pTag.appendChild(storageBattery);
+        eleStorageBattery = document.getElementById("storage-battery");
+        eleStorageBattery.appendChild(pTag);
+      });
+
+      document.settlementForm.buyBtn.addEventListener("click", function () {
+        // document.settlementForm.submit();
+        storageBattery.on("value", (snapshot) => {
+          const data = snapshot.val();
+          storageBatteryVal = data["value"];
+        });
+        let desiredPower = document.settlementForm.power.value;
+
+        firebase
+          .database()
+          .ref("storage_battery")
+          .update({ value: storageBatteryVal - desiredPower });
+
+        console.log(desiredPower);
+        console.log(storageBattery);
+
+        // 遷移させる
+        // let path = location.host + "public/buy_completed.html";
+        // console.log(path);
+        // window.location.href = path;
+      });
     </script>
     <script>
       // 天気情報取得
@@ -83,7 +126,7 @@
                   <p>最低<span>15℃</span></p>
                 </div>
                 <div class="weather-img">
-                  <img src="" alt="天気" />
+                  <img src="img/denryoku/th_weather.webp" alt="天気" />
                 </div>
               </div>
             </div>
@@ -94,7 +137,7 @@
               <h2>今日の水量予想</h2>
               <div class="hatsuden-yoso-info">
                 <p>多い</p>
-                <img src="" alt="水量" />
+                <img src="img/denryoku/river.png" alt="水量" />
               </div>
             </div>
             <div>
@@ -109,11 +152,18 @@
             <div class="denryoku-items">
               <div class="denryoku-item">
                 <h2>余剰電力</h2>
-                <p>1212 <span>kwh</span></p>
+                <div id="storage-battery"></div>
+              </div>
+              <div>
+                <p>今日の</p>
               </div>
               <div class="denryoku-item">
                 <h2>発電</h2>
                 <p>55<span>kwh</span></p>
+                <p class="side-img">
+                  <img src="img/denryoku/syousuiryoku_hatsuden.png" />
+                </p>
+                <p class="side-txt"></p>
               </div>
               <div class="denryoku-item">
                 <h2>使用電力</h2>
@@ -122,12 +172,21 @@
 
               <div class="denryoku-graph">
                 <div class="slider">
-                  <img src="img/chart1.png" alt="graph" />
-                  <img src="img/chart2.jfif" alt="graph" />
+                  <img src="img/coin/chart2.jfif" alt="graph" />
+                  <img src="img/denryoku/eleinfo.png" alt="graph" />
                 </div>
               </div>
 
               <div class="denryoku-buysell">
+                <form
+                  name="settlementForm"
+                  action="http://127.0.0.1:5500/public/buy_completed.html"
+                >
+                  <input name="power" type="number" placeholder="希望電力量" />
+                  <!-- <input name="price" type="number" placeholder="希望"/> -->
+                  <button name="buyBtn">BUY</button>
+                  <button name="sellBtn">SELL</button>
+                </form>
                 <div class="BUY">
                   <a href="/buy_completed.html">BUY</a>
                 </div>
@@ -141,5 +200,12 @@
         </main>
       </div>
     </div>
+
+    <script>
+      function submitSettlement() {
+        //入力ボックスの内容を表示する
+        alert(document.settlementForm.price.value);
+      }
+    </script>
   </body>
 </html>

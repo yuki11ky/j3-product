@@ -1,0 +1,89 @@
+.kounyuu {
+  /* 中央寄せしたい親要素 */
+  text-align: center; /* 中央寄せの指定 */
+  margin-bottom: 50px;
+  margin-bottom: 50px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  border: solid 3px #000000;
+}
+
+.other-info {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  border: solid 3px #000000;
+}
+
+.flex {
+  /* 中央寄せしたい親要素 */
+  text-align: center; /* 中央寄せの指定 */
+}
+
+.other_name {
+  /* 中央寄せしたい親要素 */
+  text-align: center; /* 中央寄せの指定 */
+  margin-bottom: 50px;
+}
+
+.kessai-rupee {
+  margin-bottom: 50px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  border: solid 3px #000000;
+}
+.kessai-waku {
+  margin-bottom: 50px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  border: solid 3px #000000;
+}
+.kessai-info div {
+  display: flex;
+  line-height: 3;
+  margin-bottom: 10px;
+  padding: 0 0;
+  margin: 2em 0;
+  font-weight: bold;
+  border: solid 3px #000000;
+}
+
+.kessai-rupee {
+  /* 中央寄せしたい親要素 */
+  text-align: center; /* 中央寄せの指定 */
+}
+
+.kessai-num {
+  /* text-align: left; /* 文章を左寄せする(※) */
+  /* float: left; 左端に寄せて、後続を右側へ回り込ませる */
+  width: 55%;
+}
+.num {
+  text-align: right; /* 文章を右寄せする */
+}
+
+.pay {
+  text-align: left; /* 文章を左寄せする(※) */
+  float: left; /* 左端に寄せて、後続を右側へ回り込ませる */
+}
+.pay-rupee {
+  text-align: right; /* 文章を右寄せする */
+}
+
+.other-info,
+.kessai-rupee,
+.kessai-waku {
+  background-color: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.kounyuu {
+  background-color: rgb(158, 59, 59);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
